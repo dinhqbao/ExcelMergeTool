@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExcelTool"
         mc:Ignorable="d"
-        Title="Excel mini tool" Height="262.924" Width="425.734" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+        Title="Excel mini tool" Height="335.745" Width="547.052" Loaded="Window_Loaded" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -13,15 +13,21 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btnBrowse" Content="Browse" Margin="253,10,90,0" VerticalAlignment="Top" Click="Button_Click" Height="20"/>
-        <TextBox x:Name="txtFolderPath" Height="20" Margin="10,10,170,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top"/>
-        <DataGrid x:Name="grdExcelFiles" Margin="10,35,10,10" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding ExcelFileList, Mode=TwoWay}" Width="400">
+        <Button x:Name="btnBrowse" Content="Browse" Margin="430,10,10,0" VerticalAlignment="Top" Click="Browse_Click" Height="26"/>
+        <TextBox x:Name="txtFolderPath" Height="26" Margin="10,10,116,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top"/>
+        <DataGrid x:Name="grdExcelFiles" Margin="10,72,10,10" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding ExcelFileList, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Binding="{Binding IsSelect}" ClipboardContentBinding="{x:Null}" Width="30" CanUserResize="False"/>
-                <DataGridTextColumn Binding="{Binding File.Name}" ClipboardContentBinding="{x:Null}" Header="File name" Width="362" CanUserResize="False"/>
+                <DataGridTextColumn Binding="{Binding File.Name}" ClipboardContentBinding="{x:Null}" Header="File name" Width="480" CanUserResize="False"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnStart" Content="Start" Margin="333,10,10,0" VerticalAlignment="Top" Click="btnStart_Click" Height="20" IsEnabled="False"/>
+        <Button x:Name="btnStart" Content="Start" Margin="430,41,10,0" VerticalAlignment="Top" Click="btnStart_Click" IsEnabled="False" RenderTransformOrigin="0.514,1.764" Height="26"/>
+        <Label Content="Row:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="26"/>
+        <ComboBox x:Name="cboStartRow" HorizontalAlignment="Left" Margin="50,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.797,0.629" Height="26" Width="38"/>
+        <Label Content="Filter Date:" HorizontalAlignment="Left" Margin="247,41,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.621,0.091"/>
+        <DatePicker x:Name="dateFilter" HorizontalAlignment="Left" Margin="319,41,0,0" VerticalAlignment="Top" Height="26" Width="106" SelectedDateChanged="dateFilter_SelectedDateChanged"/>
+        <Label Content="Sheet:" HorizontalAlignment="Left" Margin="93,41,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.621,0.091"/>
+        <TextBox x:Name="txtSheetName" HorizontalAlignment="Left" Height="26" Margin="140,41,0,0" TextWrapping="Wrap" Text="Template-VCNB." VerticalAlignment="Top" Width="102"/>
 
     </Grid>
 </Window>
